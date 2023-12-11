@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <link rel="stylesheet" href="css/estilo_v2.css">
+    <link rel="icon" type="image/jpg" href="favicon/favicon.ico">
+    <script src="js/buscarClima.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>TPO Etapa Inicial</title>
+</head>
+<body>
+    <section class="encabezado">
+        <div class="grilla">
+            <img class="img-encabezado" src="img/logo.png" alt="logo">
+            <h1 class="texto_empresa">Alma Argentina Repostería</h1>
+            <section class="img-clima">
+                <div class="resultado"></div>
+            </section>
+        </div>
+    </section>
+    <section>
+        <div class="grilla">
+            <nav class="navbar">
+                <label for="toggle-menu"><i class="fa-solid fa-bars"></i></label>
+                <input type="checkbox" id="toggle-menu">
+                <ul class="navbar-list">
+                    <li><a href="index.html" class="navbar-link">Inicio</a></li>
+                    <li><a href="productos_v2.html" class="navbar-link">Nuestras Delicias</a></li>
+                    <li><a href="nosotros_v2.html" class="navbar-link">Nosotros</a></li>
+                    <li><a href="contacto_v2.html" class="navbar-link">Contacto</a></li>
+                    <li><a href="ubicacion_v2.html" class="navbar-link">Ubicacion</a></li>
+                    <li><a href="prod.html" class="navbar-link">Ingresar</a></li>
+                    
+                    <a href="pedidos_v2.html" class="fa-solid fa-cart-shopping" style="color: black;" ></a>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <h3>Ingreso para manejo administrativo de la página</h3>
+        <p id="comentario">Solo usuarios autorizados</p>
+        <div class="grilla">
+            <div class="tarjeta-historia">
+                <div class="formulario">
+                <form action="" id="form" name="form">
+                    <div class="form-group">
+                        <label for="usuario_login">Usuario :</label>
+                        <input type="text" id="usuario_login" name="usuario_login" placeholder="Ingrese usuario" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="clave_login">Clave :</label>
+                        <input type="password" id="clave_login" name="clave_login" placeholder="Ingrese clave" autocomplete="off">
+                    </div>
+                    <div class="submit-button">
+                        <input type="button" id="bt_login" name="bt_login" value=" Validar " onclick="levantaUsuarios()">
+                    </div>
+                </form>  
+                </div>
+            </div>
+        </div>   
+    </section>
+    <section>
+        <div class="grilla">
+            <footer class="footer">
+                <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+                <p>Realizado por TOTEM PYTHON GROUP T.P.O. Etapa inicial</p>
+                <iconify-icon class="redsocial" icon="entypo-social:twitter"></iconify-icon>
+                <iconify-icon class="redsocial" icon="entypo-social:facebook"></iconify-icon>
+                <iconify-icon class="redsocial" icon="entypo-social:500px"></iconify-icon>
+                <iconify-icon class="redsocial" icon="entypo-social:google"></iconify-icon>
+                <iconify-icon class="redsocial" icon="entypo-social:pinterest"></iconify-icon>
+                <iconify-icon class="redsocial" icon="entypo-social:paypal"></iconify-icon>
+            </footer>
+        </div>
+    </section>
+    <script src="js/validarUsuario.js"></script>
+</body>
+</html>

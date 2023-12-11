@@ -1,0 +1,662 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Calibri, sans-serif;
+    text-decoration: none;
+}
+
+/* Colores Alma Argentina Reposteria */
+:root {
+    --letra: #c97c5d;
+    --fondo1: #b36a56;
+    --fondo2: #f8c49c;
+    --fondo3: #f3cfb4;
+    --fondo4: linear-gradient(120deg, #eed7c5 0%, #b36a56 100%);
+    --fondo-footer: dimgray;
+    --font-family: 'Dancing Script', cursive;
+}
+html{
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    background-color: var(--fondo3);
+}
+.grid-container{
+    display: grid;
+    gap:5px;
+    text-align: center;
+    padding: 10px;
+    font-size:65%;
+    grid-template-columns: auto;
+    grid-template-rows:50px 30px 250px 180px 70px;
+    grid-template-areas:
+    "header"
+    "navbar"
+    "article"
+    "aside"
+    "footer";
+}
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header1 {
+    display: flex;
+    justify-items: center;
+    justify-content: left;
+    align-items: center;
+    background-color: var(--fondo3);
+}
+
+.texto_empresa{
+    color: var(--letra);
+    font-size: 6.5vw;
+    padding: 0 20px;
+    font-family: var(--font-family);
+    filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.596));
+}
+.logo{
+    filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.596));
+}
+.navbar {
+    background: var(--fondo2); /* comentado para probar gradiente  var(--fondo4);*/
+    border-radius: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    font-size: 20px;
+    grid-area: navbar;
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar i {
+    font-size: 20px;
+    display: none;
+}
+
+#toggle-menu {
+    display: none;
+}
+
+.navbar-link {
+    color: #000;
+    font-weight: 300;
+    padding:0 10px 0 10px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: color 2s;
+}
+
+.navbar-link:hover{
+    background-color: var(--letra);
+    color: #fff;
+}
+
+@media (max-width: 680px) {
+    .navbar ul {
+        background: var(--fondo3);
+        border-radius: 12px;
+        width: 100%;
+        height: 300px;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        transition: display 2s;
+    }
+
+    .navbar i {
+        display: block;
+    }
+
+    #toggle-menu:checked ~ .navbar-list {
+        display: flex;
+    }
+}
+.aside{
+    grid-area: aside;
+    float:right;
+    background-color: #c97c5d ;/*rgba(230, 192, 65, 0.767);*/
+    color: white;
+    overflow: auto;
+    padding: 1%;
+    border-radius: 12px;
+}
+.aside::-webkit-scrollbar{
+    width: 2px;
+    background-color: var(--fondo1);
+    border-radius: 7px;
+}
+.aside p{
+    margin-top: 10px;
+}
+
+.article{
+    grid-area: article;
+    background-color: var(--fondo2);
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(2,70% 28%);
+    gap: 1em;
+    justify-items: center;
+}
+
+.article > img{
+    width: 100%;
+    object-fit: scale-down;
+}
+
+
+#ft_local{
+    max-width: 350px; /*Para ver que logre mantener el responsive*/
+    border-radius: 15%;
+    padding: 10px;
+}
+#cocina{
+    padding: 10px;
+    max-height: 240px;
+    border-radius: 15%;
+}
+
+.footer{
+    grid-area: footer;
+    background-color: var(--fondo-footer);
+    text-align: center;
+    padding: 10px;
+    border-radius: 12px;
+}
+.redsocial{
+    align-items: center;
+    margin: 20px 15px 0px 15px;
+} 
+/*  ------ estilo para pagina de ubicación ------- */
+.grid-container-ubicacion{
+    display: grid;
+    text-align: center;
+    padding: 10px;
+    font-size:65%;
+    grid-template-columns: auto;
+    grid-template-rows:50px 30px auto 70px;
+    grid-template-areas:
+    "header"
+    "navbar"
+    "."
+    "footer";
+}
+.ubicacion iframe{
+    margin: 10px;
+}
+.ubicacion img{
+    max-width: 400px; /*buscar de mejorar la posición*/
+}
+.ubicacion p{
+    font-size: 20px;
+    margin: 25px 0 25px 0;
+    border-style:solid;
+    border-color: var(--fondo1);
+    border-radius: 12px;
+}
+
+@media(min-width:518px){
+    #globo{
+        width: 0px;
+    }
+}
+/*  ---- fin de estilo pagina ubicación ---- */
+
+
+/*---------- estilo de la pagina Nosotros ----------*/
+.contenedor-nosotros{
+    display: grid;
+    gap:5px;
+    text-align: center;
+    padding: 10px;
+    font-size:65%;
+    grid-template-columns: auto;
+    grid-template-rows: auto;/*200px 30px 250px 180px 100px;*/
+    grid-template-areas:
+    "historia"
+    "historia1"
+    "pastelero"
+    "salon"
+    "admin"
+    "gral";
+}
+
+    #pastelero{
+        grid-area: pastelero;
+    }
+    #salon{
+        grid-area: salon;
+    }    
+    #admin{
+        grid-area: admin;
+    }
+    #gral{
+        grid-area: gral;
+    }
+    .span-nosotros{
+        font-size: 5vw;
+    }
+
+    .item1{
+        grid-area: historia;
+        background-color: whitesmoke;
+        margin: 10px;
+        border-radius: 12px;
+        text-align: center;
+        padding: 10px;
+    }
+    .item2{
+        grid-area: historia1;
+        background-color: whitesmoke;
+        text-align: center;
+        margin: -25px 10px 10px 10px;
+        padding-top: 10px;
+        border-radius: 12px;
+    }
+    .item2 p{
+        font-size: 3.5vw;
+    }
+    .item3{
+        /* max-width: 400px; */
+        /* grid-area: pastelero; */
+        background-color: whitesmoke;
+        margin: 10px;
+        border-radius: 12px;
+        text-align:center;
+        padding: 10px;
+    }
+    .item3 img{
+        border-radius: 50%;
+        border: solid;
+    }
+/*---------- Fin estilo de la pagina Nosotros ----------*/
+
+/*----------Inicia Contacto ---------------*/
+
+.formulario {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+    /* height: 50vh; */
+}
+.container {
+    background-color: #c97c5d;
+    width: 400px;
+    transition: width 4s;
+    padding: 20px;
+    border-radius: 12px;
+}
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.form-group label { 
+/*.label-contacto{*/ /* para que se posicione el texto con el formato pero encima de la caja*/
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px;
+    text-align: left;
+    margin-right: 10px;
+}
+input, textarea {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: var(--fondo3);
+    border-radius: 5px;
+    font-size: 16px;
+}
+textarea {
+    resize: vertical;
+}
+.submit-button {
+    text-align: center;
+}
+.submit-button button {
+    padding: 10px 20px;
+    background-color: var(--fondo2);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.submit-button button:hover {
+    background-color: var(--fondo1);
+    filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.596));
+}
+
+/*------------finaliza contacto ------------*/
+
+/* ------------ Inicia Productos ------------*/
+.caja-imagenes{
+    grid-area: productos;
+    background-color: var(--fondo1);
+    border-radius: 12px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ficha{
+    background-color: var(--fondo3) ;
+    filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.596));
+    justify-items: center;
+    border-radius: 12px;
+    width: 170px;
+    height: 220px;
+    display: grid;
+    margin: 10px;
+    padding: 20px;
+}
+.ficha:hover{
+    scale: 1.5;
+    margin-top: 60px;
+    border-style: solid; 
+    border-color: #fff;
+    z-index: 1;
+}
+.ficha span{
+    font-size: 0.8rem;
+}
+.ficha img{
+    width: 100px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+.aside iframe{
+    margin-top: 8px;
+    border: solid;
+    border-radius: 12px;
+}
+
+.grid-container-productos{
+    display: grid;
+    gap:5px;
+    text-align: center;
+    padding: 10px;
+    font-size:65%;
+    grid-template-columns: auto;
+    grid-template-rows: 50px 30px 300px auto 70px;
+    grid-template-areas:
+    "header"
+    "navbar"
+    "aside"
+    "productos"
+    "footer";
+}
+
+
+/* ------------ finaliza Productos ----------- */
+
+@media(min-width:680px){
+    .navbar{
+        background-image: var(--fondo4);
+        text-align: right;
+        text-decoration: none;
+        height: 25px;
+        border-radius: 12px;
+        padding-right: 20px;
+        padding-top: 10px;
+        font-size: 1.4vw;
+    }   
+    .aside{
+        max-height: 280px;
+    }
+    #ft_local{
+        max-width: 400px; 
+    }
+    .article{
+        max-height: 280px;
+    }
+    .grid-container{
+        font-size: 100%;
+        grid-template-columns: auto;
+        grid-template-rows:70px 25px 280px 80px;
+        grid-template-areas:
+        "header header header"
+        "navbar navbar navbar"
+        "article article aside"
+        "footer footer footer";
+    }
+    .grid-container-ubicacion{
+        display: grid;
+        text-align: center;
+        padding: 10px;
+        font-size:65%;
+        grid-template-columns: auto;
+        grid-template-rows:70px 25px auto 80px;
+        grid-template-areas:
+        "header"
+        "navbar"
+        "."
+        "footer";
+    }
+    .ubicacion iframe{
+        width: 400px;
+        height: 300px;
+    }
+    .grid-container-productos{
+        display: grid;
+        gap:5px;
+        text-align: center;
+        padding: 10px;
+        font-size:65%;
+        grid-template-columns: 40% auto;
+        grid-template-rows: 70px 25px auto 70px;
+        grid-template-areas:
+        "header header header"
+        "navbar navbar navbar"
+        "productos productos aside"
+        "footer footer footer";
+    }
+    .aside iframe{
+        width: 100%;
+    } 
+    /*************************************** estilo simple para pedidos **********************/
+    .cont_comprado{
+        background-color: var(--fondo1);
+        color: var(--fondo3);
+        margin: 30px;
+        padding: 30px;
+    }
+    .cont_comprado .listado{
+        font-size: 30px;
+        padding: 20px;
+    }
+    /*************************************** FIN de estilo simple para pedidos **************/
+}
+@media(min-width:900px){
+    .header1{
+        max-height: 120px;
+    }
+    .aside{
+        max-height: 450px;
+    }
+    .article{
+        max-height: 450px;
+    }
+    #ft_local{
+        max-width: 550px;
+    }
+    #cocina{
+        max-height: 500px;
+    }
+    .grid-container{
+        font-size: 100%;
+        grid-template-columns: auto;
+        grid-template-rows:90px 25px 450px 80px;
+        grid-template-areas:
+        "header header header"
+        "navbar aside aside"
+        "article article"
+        "footer footer footer";
+    }
+    .grid-container-ubicacion{
+        font-size:100%;
+        grid-template-rows:90px 25px 400px 80px;
+        grid-template-areas:
+        "header"
+        "navbar"
+        "."
+        "footer";
+    }
+    .item2{
+        margin: 10px;
+    }
+    .span-nosotros{
+        font-size: 3vw;
+    }
+    .item2 p{
+        font-size: 2vw;
+    }
+    .contenedor-nosotros{
+        font-size:100%;
+        grid-template-columns: auto;
+        grid-template-rows: auto;/*200px 30px 250px 180px 100px;*/
+        grid-template-areas:
+        "historia historia historia"
+        "historia1 historia1 historia1"
+        "pastelero . salon"
+        "admin . gral";
+    }
+    .container {
+        width: 650px;
+    }
+}
+
+@media(min-width:1200px){
+    #ft_local{
+        max-width: 650px;
+    }   
+    #cocina{
+        max-height: 450px;
+    }
+    .navbar{
+        height: 35px;
+    }
+    .grid-container{
+        font-size: 100%;
+        grid-template-columns: 78% auto;
+        grid-template-rows:150px 35px 450px 90px;
+        grid-template-areas:
+        /* grid-template  */
+        "header header header"
+        "navbar aside aside"
+        "article article"
+        "footer footer footer";
+    }
+    #globo{
+        width: 270px;
+    }
+    .grid-container-ubicacion{
+        font-size:100%;
+        grid-template-rows:170px 35px 500px 90px;
+        grid-template-areas:
+        "header"
+        "navbar"
+        "."
+        "footer";
+    }
+    .ubicacion iframe{
+        width: 430px;
+        height: 400px;
+    }
+     /* .span-nosotros{
+        font-size: 3vw;
+    } */
+    /* .item2 p{
+        font-size: 2vw;
+    }  */
+    .fto{
+        grid-area: fto;
+    }
+    .grid-container-nosotros{
+        display: grid;
+        font-size:100%;
+        grid-template-rows:170px 35px auto 90px;
+        grid-template-areas:
+        "header"
+        "navbar"
+        "."
+        "footer";
+    }
+    .contenedor-nosotros{
+        font-size:100%;
+        grid-template-columns: auto;
+        grid-template-rows: auto;/*200px 30px 250px 180px 100px;*/
+        grid-template-areas:
+        "historia historia historia"
+        "historia1 pastelero salon"
+        "historia1 admin gral";
+
+    }
+    .grid-container-contacto{
+        display: grid;
+        font-size:100%;
+        grid-template-rows:170px 35px 500px 90px;
+        grid-template-areas:
+        "header"
+        "navbar"
+        "."
+        "footer";
+    }
+    .container {
+        width: 850px;
+    }
+    .grid-container-productos{
+        display: grid;
+        gap:5px;
+        text-align: center;
+        padding: 10px;
+        font-size:65%;
+        grid-template-columns: 40% auto;
+        grid-template-rows: 170px 35px auto 90px;
+        grid-template-areas:
+        "header header header"
+        "navbar navbar navbar"
+        "productos productos aside"
+        "footer footer footer";
+    }
+    .aside iframe{
+        max-width: 400px;
+    } 
+}
+
+@media(min-width:1500px){
+    .ubicacion iframe{
+        width: 550px;
+        height: 400px;
+    }
+    #globo{
+        width: 300px;
+    }
+}

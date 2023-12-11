@@ -1,0 +1,160 @@
+
+
+<div class="fichas">
+    <div class="ficha">
+        <img alt="foto del postre" class="formato-img">
+        <span class="formato-descr"></span>
+        <span class="formato-precio"></span>
+        <input id="cantCompra" type="number" placeholder="Cantidad">
+        <span class="submit-button">
+            <button type="button">Comprar</button>
+        </span>
+    </div>  
+</div> 
+
+
+
+
+<div class="fichas">
+    <div class="ficha">
+        <img alt="foto del postre" class="formato-img" src="https://camposguille.github.io/tpo/img/ft1.jpg">
+        <span class="formato-descr">Banana Split</span>
+        <span class="formato-precio">2340</span>
+        <input id="cantCompra" type="number" placeholder="Cantidad">
+        <span class="submit-button">
+            <button type="button">Comprar</button>
+        </span>
+    </div>  
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section>
+    <h3>Ingreso para manejo administrativo de la página</h3>
+    <p id="comentario">Solo usuarios autorizados</p>
+    <div class="grilla">
+        <div class="tarjeta-historia">
+            <div class="formulario">
+            <form action="" id="form" name="form">
+                <div class="form-group">
+                    <label for="usuario_login">Usuario :</label>
+                    <input type="text" id="usuario_login" name="usuario_login" placeholder="Ingrese usuario" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="clave_login">Clave :</label>
+                    <input type="password" id="clave_login" name="clave_login" placeholder="Ingrese clave" autocomplete="off">
+                </div>
+                <div class="submit-button">
+                    <input type="button" id="bt_login" name="bt_login" value=" Validar " onclick="levantaUsuarios()">
+                </div>
+            </form>  
+            </div>
+        </div>
+    </div>   
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main>
+    <div id="app" class="container">
+        <h3>Modo administrador</h3>
+        <br>
+        <a class="btn btn-primary" href="prod_nuevo.html">Nuevo</a>
+        <br><br>
+        <div v-if="error">
+            <p>Lo sentimos , ........</p>
+        </div>
+        <div v-else>
+            <section v-if="cargando">
+                <div class="spinner-border"></div>
+                <p>Cargando .....</p>
+            </section>
+            <section v-else>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="" v-for="producto in productos">
+                                <td scope="row ">{{producto.id}}</td>
+                                <td>{{producto.descripcion}}</td>
+                                <td>{{producto.precio}}</td>
+                                <td>{{producto.stock}}</td>
+                                <td><img class="ftNueva" :src="producto.imagen" :alt="producto.nombre"></td>
+                                <td><a class="btn btn-primary" :href="'prod_editar.html?id='+ producto.id" >Editar</a>
+                                    <button type="button" class="btn btn-primary" v-on:click="eliminar(producto.id)" >Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
